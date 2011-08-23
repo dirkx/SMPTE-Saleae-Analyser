@@ -1,0 +1,20 @@
+Simple SMPTE/LTC decoder for the Saleae Logic probe. Tested against version 1.1.9.
+
+This has only be lightly tested against a few generators. Let me know if it works (or
+not). dirkx(at)webweaving(dot)org. Thanks!
+
+See below for more information:
+	http://www.alpermann-velte.com/proj_e/tc_intro/ltc_code.html
+	http://www.philrees.co.uk/articles/timecode.htm
+	http://en.wikiaudio.org/SMPTE_time_code
+
+Version 0.01 / 20011-08-19
+	first release
+
+Version 0.02 /
+	Better tracking of clock drift. Various additional markers.
+	Fix phase detect.
+
+
+$Id: README 996 2011-08-23 16:47:34Z dirkx $
+
