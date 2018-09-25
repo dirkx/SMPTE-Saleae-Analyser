@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * $Id: SMPTEAnalyzerResults.cpp 996 2011-08-23 16:47:34Z dirkx $
+ * $Id: SMPTEAnalyzerResults.cpp 4369 2018-09-25 09:05:38Z dirkx $
  */
 #include "SMPTEAnalyzerResults.h"
 #include <AnalyzerHelpers.h>
@@ -101,12 +101,15 @@ void SMPTEAnalyzerResults::fillSMPTE(Frame frame, char * resultstr)
 	for(U32 i = 0; i < 8; i++) p ^= m[i];
 	p ^= p >> 4; p ^= p >> 2; p ^= p >> 1; 
 
-	if ((p & 1) == BIT(m,PHASEBIT)) {
+	// Should be an even number of bits; if we include
+	// the parity bit in the list./
+	//
+	if ((p & 1) == 0) {
 		strncat(str,"p", sizeof(str)-1);
-		strncat(str2," Parity-ok", sizeof(str)-1);
+		strncat(str2," parity-ok", sizeof(str2)-1);
 	} else {
 		strncat(str," P", sizeof(str)-1);
-		strncat(str2," Parity-fail", sizeof(str)-1);
+		strncat(str2," Parity-FAIL!", sizeof(str2)-1);
 	};
 	char buff[128];
 	snprintf(buff,sizeof(buff)," User=%X-%X-%X-%X-%X-%X-%X-%X, groupBits=%d%d, reserved=%d",

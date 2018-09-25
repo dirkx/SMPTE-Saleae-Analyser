@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * $Id: SMPTEAnalyzer.cpp 996 2011-08-23 16:47:34Z dirkx $
+ * $Id: SMPTEAnalyzer.cpp 991 2011-08-19 11:51:27Z dirkx $
  */
 #include "SMPTEAnalyzer.h"
 #include "SMPTEAnalyzerSettings.h"

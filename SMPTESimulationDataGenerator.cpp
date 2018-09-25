@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * $Id: SMPTESimulationDataGenerator.cpp 996 2011-08-23 16:47:34Z dirkx $
+ * $Id: SMPTESimulationDataGenerator.cpp 992 2011-08-19 13:53:40Z dirkx $
  */
 #include "SMPTESimulationDataGenerator.h"
 #include "SMPTEAnalyzerSettings.h"

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * $Id: SMPTEAnalyzerSettings.h 996 2011-08-23 16:47:34Z dirkx $
+ * $Id: SMPTEAnalyzerSettings.h 989 2011-08-19 09:55:32Z dirkx $
  */
 #ifndef SMPTE_ANALYZER_SETTINGS
 #define SMPTE_ANALYZER_SETTINGS
