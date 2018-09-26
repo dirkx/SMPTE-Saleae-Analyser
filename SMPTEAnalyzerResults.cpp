@@ -197,11 +197,14 @@ void SMPTEAnalyzerResults::GenerateExportFile( const char* file, DisplayBase dis
 void SMPTEAnalyzerResults::GenerateFrameTabularText( U64 frame_index, DisplayBase display_base )
 {
 	Frame frame = GetFrame( frame_index );
+
 	char str[128];
 	fillSMPTE(frame,str);
 
-	ClearResultStrings();
-	AddResultString( str );
+	// AddTabularText( "fred");
+
+	ClearTabularText();
+	AddTabularText(str);
 }
 
 void SMPTEAnalyzerResults::GeneratePacketTabularText( U64 packet_id, DisplayBase display_base )
