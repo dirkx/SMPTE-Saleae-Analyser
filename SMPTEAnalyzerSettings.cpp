@@ -14,11 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * $Id: SMPTEAnalyzerSettings.cpp 989 2011-08-19 09:55:32Z dirkx $
+ * $Id: SMPTEAnalyzerSettings.cpp 4383 2018-10-02 08:30:40Z dirkx $
  */
 #include "SMPTEAnalyzer.h"
 #include "SMPTEAnalyzerSettings.h"
-#include <AnalyzerHelpers.h>
+#include "AnalyzerHelpers.h"
 
 
 SMPTEAnalyzerSettings::SMPTEAnalyzerSettings()

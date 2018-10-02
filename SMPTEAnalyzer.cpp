@@ -14,11 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * $Id: SMPTEAnalyzer.cpp 991 2011-08-19 11:51:27Z dirkx $
+ * $Id: SMPTEAnalyzer.cpp 4383 2018-10-02 08:30:40Z dirkx $
  */
 #include "SMPTEAnalyzer.h"
 #include "SMPTEAnalyzerSettings.h"
-#include <AnalyzerChannelData.h>
+#include "AnalyzerChannelData.h"
 
 #include <stdio.h>
 #include <strings.h>
@@ -26,7 +26,7 @@
 #define SMPTE_DEBUG_2 0
 
 SMPTEAnalyzer::SMPTEAnalyzer()
-:	Analyzer(),  
+:	Analyzer2(),  
 	mSettings( new SMPTEAnalyzerSettings() ),
 	mSimulationInitilized( false )
 {
@@ -36,6 +36,13 @@ SMPTEAnalyzer::SMPTEAnalyzer()
 SMPTEAnalyzer::~SMPTEAnalyzer()
 {
 	KillThread();
+}
+
+void SMPTEAnalyzer::SetupResults()
+{
+	mResults.reset( new SMPTEAnalyzerResults( this, mSettings.get() ) );
+	SetAnalyzerResults( mResults.get() );
+	mResults->AddChannelBubblesWillAppearOn( mSettings->mInputChannel );
 }
 
 // returns start of SMPTE sequence, terminated by
@@ -64,13 +71,8 @@ int findCodeWord(U8 packet[]) {
 
 void SMPTEAnalyzer::WorkerThread()
 {
-	mResults.reset( new SMPTEAnalyzerResults( this, mSettings.get() ) );
-	SetAnalyzerResults( mResults.get() );
-	mResults->AddChannelBubblesWillAppearOn( mSettings->mInputChannel );
-
 	mSampleRateHz = GetSampleRate();
 	mSMPTE = GetAnalyzerChannelData( mSettings->mInputChannel );
-
 
 	U8 packet[10];
 	U64 snos[80];
@@ -225,6 +227,8 @@ void SMPTEAnalyzer::WorkerThread()
 		starting_sample = frame.mEndingSampleInclusive;
 		at = 0;
 		bzero(packet,10);
+
+		CheckIfThreadShouldExit();
 	}
 }
 

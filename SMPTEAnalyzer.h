@@ -14,13 +14,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * $Id: SMPTEAnalyzer.h 992 2011-08-19 13:53:40Z dirkx $
+ * $Id: SMPTEAnalyzer.h 4383 2018-10-02 08:30:40Z dirkx $
  */
 
 #ifndef SMPTE_ANALYZER_H
 #define SMPTE_ANALYZER_H
 
-#include <Analyzer.h>
+#include "Analyzer.h"
+
 #include "SMPTEAnalyzerResults.h"
 #include "SMPTESimulationDataGenerator.h"
 
@@ -29,11 +30,12 @@
 #define VERSION "0.02 - 2011-08-19"
 
 class SMPTEAnalyzerSettings;
-class ANALYZER_EXPORT SMPTEAnalyzer : public Analyzer
+class ANALYZER_EXPORT SMPTEAnalyzer : public Analyzer2
 {
 public:
 	SMPTEAnalyzer();
 	virtual ~SMPTEAnalyzer();
+	virtual void SetupResults();
 	virtual void WorkerThread();
 
 	virtual U32 GenerateSimulationData( U64 newest_sample_requested, U32 sample_rate, SimulationChannelDescriptor** simulation_channels );

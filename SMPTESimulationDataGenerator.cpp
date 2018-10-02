@@ -14,14 +14,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * $Id: SMPTESimulationDataGenerator.cpp 992 2011-08-19 13:53:40Z dirkx $
+ * $Id: SMPTESimulationDataGenerator.cpp 4383 2018-10-02 08:30:40Z dirkx $
  */
 #include "SMPTESimulationDataGenerator.h"
 #include "SMPTEAnalyzerSettings.h"
 #include "SMPTEAnalyzer.h"
 #include <stdlib.h>
 
-#include <AnalyzerHelpers.h>
+#include "AnalyzerHelpers.h"
 
 SMPTESimulationDataGenerator::SMPTESimulationDataGenerator()
 :	mPacketIndex( 0 ),

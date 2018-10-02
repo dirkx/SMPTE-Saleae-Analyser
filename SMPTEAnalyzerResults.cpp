@@ -14,10 +14,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * $Id: SMPTEAnalyzerResults.cpp 4369 2018-09-25 09:05:38Z dirkx $
+ * $Id: SMPTEAnalyzerResults.cpp 4383 2018-10-02 08:30:40Z dirkx $
  */
 #include "SMPTEAnalyzerResults.h"
-#include <AnalyzerHelpers.h>
+#include "AnalyzerHelpers.h"
 #include "SMPTEAnalyzer.h"
 #include "SMPTEAnalyzerSettings.h"
 #include <iostream>
@@ -197,14 +197,11 @@ void SMPTEAnalyzerResults::GenerateExportFile( const char* file, DisplayBase dis
 void SMPTEAnalyzerResults::GenerateFrameTabularText( U64 frame_index, DisplayBase display_base )
 {
 	Frame frame = GetFrame( frame_index );
-
 	char str[128];
 	fillSMPTE(frame,str);
 
-	// AddTabularText( "fred");
-
 	ClearTabularText();
-	AddTabularText(str);
+	AddTabularText( str );
 }
 
 void SMPTEAnalyzerResults::GeneratePacketTabularText( U64 packet_id, DisplayBase display_base )
